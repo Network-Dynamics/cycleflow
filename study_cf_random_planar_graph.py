@@ -51,8 +51,10 @@ if __name__=='__main__':
 
 	x, y, sds=cf_decay_with_dist(size, p_rewire)	
 	
-	print "distances	mean_cf_decay	standard_deviation"
+	print "#size=%d,p_rewire=%f"%(size, p_rewire)	
+	print "#distances	mean_cf_decay	standard_deviation"
 
 	for a,b,c in zip(x,y,sds):
 		print a,'\t',b,'\t',c
+
 
