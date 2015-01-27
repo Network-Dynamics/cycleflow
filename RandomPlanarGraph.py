@@ -9,7 +9,7 @@ class RandomPlanarGraph(nx.Graph):
 			if np.random.random()<p_merge:
 				neighbors=self.neighbors(node)
 				
-				merge_with=neighbors[np.random.choice(len(neighbors))]
+				merge_with=neighbors[np.random.randint(len(neighbors))]
 				neighbors.remove(merge_with)
 				
 				for other_neighbor in neighbors:
