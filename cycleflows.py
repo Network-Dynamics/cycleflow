@@ -1,6 +1,7 @@
 import networkx as nx
 import scipy.sparse as sparse 
 import scipy.sparse.linalg as spalg
+from scipy.sparse.construct import eye as speye
 
 def spinv(A):
 	"""
@@ -25,7 +26,7 @@ def spinv(A):
 	scipy.linalg.inv.
 
 	"""
-	I = spalg.speye(A.shape[0], A.shape[1], dtype=A.dtype, format=A.format)
+	I = speye(A.shape[0], A.shape[1], dtype=A.dtype, format=A.format)
 	Ainv = spalg.spsolve(A, I)
 	return Ainv
 
