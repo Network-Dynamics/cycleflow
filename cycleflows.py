@@ -1,7 +1,6 @@
-import numpy as np
 import networkx as nx
 import scipy.sparse as sparse 
-import scipy.sparse.linalg. as spalg
+import scipy.sparse.linalg as spalg
 
 def dF_with_distance(G, src_a=None, src_b=None):
 	allnodes=G.nodes()
