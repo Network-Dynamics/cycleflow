@@ -4,6 +4,7 @@ import numpy as np
 class RandomPlanarGraph(nx.Graph):
 	def __init__(self, n, p_merge):
 		G=nx.grid_2d_graph(n,n)
+		self.gridsize=n
 		nx.Graph.__init__(self,G)
 		for node in self.nodes():
 			if np.random.random()<p_merge:
@@ -31,25 +32,38 @@ class RandomPlanarGraph(nx.Graph):
 	
 	
 	  
-	def get_boundary(self):
+	def loopy_degree(self, degrees):
 		allnodes=self.nodes()
-		boundarynodes=[]
-		boundarynodes+=[node for node in allnodes if self._is_global_extremum(node[0], [anynode[0] for anynode in allnodes if anynode[1]==node[1]])]
-		boundarynodes+=[node for node in allnodes if self._is_global_extremum(node[1], [anynode[1] for anynode in allnodes if anynode[0]==node[0]])]
-		
-		return set(boundarynodes)
-		
+
+		ldegrees=degrees
+
+		coordarray=np.array(self.nodes()).T
+
+		for x in xrange(self.gridsize):
+			col=coordarray[1][coordarray[0]==x]
+			colmax=(x,max(col))
+			colmin=(x,min(col))
+			ldegrees[allnodes.index(colmax)]+=1			
+			ldegrees[allnodes.index(colmin)]+=1			
+
+
+		for y in xrange(self.gridsize):
+			col=coordarray[0][coordarray[1]==y]
+			colmax=(max(col),y)
+			colmin=(min(col),y)
+			ldegrees[allnodes.index(colmax)]+=1			
+			ldegrees[allnodes.index(colmin)]+=1			
+			
+			
+		return ldegrees
+			
 	
 	def loopy_laplacian(self):
 		adj_mat=np.array(nx.adjacency_matrix(self))
-		diagterms=np.sum(adj_mat, axis=0)
-	
-		allnodes=self.nodes()
-	
-		boundarynodes=self.get_boundary()
-
-		diagterms[[allnodes.index(node) for node in boundarynodes]]+=1
-		loopy_lapl=np.diag(diagterms)-adj_mat
+		degrees=np.sum(adj_mat, axis=0)
+		loopy_degrees=self.loopy_degree(degrees)
+		
+		loopy_lapl=np.diag(loopy_degrees)-adj_mat
 		
 		return loopy_lapl
 
