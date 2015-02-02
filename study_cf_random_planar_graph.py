@@ -24,7 +24,7 @@ def calculate_mean_and_sd(xdata, ydata):
 
 	for x in xpoints:
 		yvals_for_x=ydata[xdata==x]
-		mean_at_xpoints.append(np.mean(yvals_for_x))
+		mean_at_xpoints.append(np.mean(np.abs(yvals_for_x)))
 		sd_at_xpoints.append(np.sqrt(np.var(yvals_for_x)))
 	
 	return xpoints, mean_at_xpoints, sd_at_xpoints
