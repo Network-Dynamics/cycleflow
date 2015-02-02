@@ -20,7 +20,7 @@ class RandomPlanarGraph(nx.Graph):
 
 
 	def choose_2_central_nodes(self):
-		N=self.number_of_nodes()
+		N=self.gridsize
 		dists_from_cents=np.array([[n,np.abs(n[0]-N/2)+np.abs(n[1]-N/2)] for n in self.nodes()])
 		centralmost=dists_from_cents[np.argmin(dists_from_cents[:,1])][0]
 		other=nx.neighbors(self, centralmost)[0]
