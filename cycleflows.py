@@ -1,10 +1,12 @@
 import networkx as nx
 import numpy.linalg as linalg
+import scipy.sparse.linalg as linalg
+from scipy.sparse import csc_matrix 
 
 
 def dF_with_distance(G, src_a=None, src_b=None):
 	allnodes=G.nodes()
-	Lg=linalg.inv(G.loopy_laplacian())
+	Lg=linalg.inv(csc_matrix(G.loopy_laplacian())).toarray()
 
         shortest_pathlengths_ordered=[nx.single_source_shortest_path_length(G, src_a)[node] for node in allnodes]
         
