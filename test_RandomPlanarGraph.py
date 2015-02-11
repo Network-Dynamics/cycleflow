@@ -12,8 +12,8 @@ class p_zero_TestCase(unittest.TestCase):
 		self.assertTrue(self.G.number_of_nodes()==self.gridsize**2 and self.G.number_of_edges()==2*self.gridsize*(self.gridsize-1))
 
 	def test_loopy_degree(self):
-		adj_mat=np.array(nx.adjacency_matrix(self.G))
-		degrees=np.sum(adj_mat, axis=0)
+		adj_mat=nx.adjacency_matrix(self.G)
+		degrees=np.squeeze(np.asarray(adj_mat.sum(axis=1)))
 
 		self.assertTrue((self.G.loopy_degree(degrees)==4).all())
 

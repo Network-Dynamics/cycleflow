@@ -16,7 +16,7 @@ class size_2_p_zero_TestCase(unittest.TestCase):
 		(1, 0.041666666666666664)]
 		
 
-		difference_flows=np.array([(dfs[i][1] - idealresult[i][1]) for i in range(len(idealresult))])
+		difference_flows=np.array([elem[1] for elem in dfs])-np.array([elem[1] for elem in idealresult])
 
 		self.assertTrue(np.linalg.norm(difference_flows)<10e-6)
 

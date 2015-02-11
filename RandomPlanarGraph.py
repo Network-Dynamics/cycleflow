@@ -39,7 +39,7 @@ class RandomPlanarGraph(nx.Graph):
 
                 coordarray=np.array(self.nodes()).T
 
-                for x in xrange(self.gridsize):
+                for x in range(self.gridsize):
                         col=coordarray[1][coordarray[0]==x]
                         colmax=(x,max(col))
                         colmin=(x,min(col))
@@ -47,7 +47,7 @@ class RandomPlanarGraph(nx.Graph):
                         ldegrees[allnodes.index(colmin)]+=1                        
 
 
-                for y in xrange(self.gridsize):
+                for y in range(self.gridsize):
                         col=coordarray[0][coordarray[1]==y]
                         colmax=(max(col),y)
                         colmin=(min(col),y)
@@ -59,11 +59,11 @@ class RandomPlanarGraph(nx.Graph):
                         
         
         def loopy_laplacian(self):
-                adj_mat=np.array(nx.adjacency_matrix(self))
-                degrees=np.sum(adj_mat, axis=0)
+                adj_mat=nx.adjacency_matrix(self)
+                degrees=np.squeeze(np.asarray(adj_mat.sum(axis=1)))
                 loopy_degrees=self.loopy_degree(degrees)
                 
-                loopy_lapl=np.diag(loopy_degrees)-adj_mat
+                loopy_lapl=np.diag(loopy_degrees)-adj_mat.toarray()
                 
                 return loopy_lapl
 
