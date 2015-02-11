@@ -10,4 +10,7 @@ def benchmark_sparse():
 	import scipy.sparse as sp
 	import scipy.sparse.linalg as linalg
 	
-	return linalg.inv(L)
+	src=sp.csr_matrix((G.number_of_nodes(),1))
+	src[4]=1
+	src[5]=-1
+	return linalg.spsolve(L, src)
