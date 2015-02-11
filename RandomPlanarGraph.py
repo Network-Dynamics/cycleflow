@@ -1,5 +1,6 @@
 import networkx as nx
 import numpy as np
+import scipy.sparse as sparse
 
 class RandomPlanarGraph(nx.Graph):
         def __init__(self, n, p_merge):
@@ -63,7 +64,7 @@ class RandomPlanarGraph(nx.Graph):
                 degrees=np.squeeze(np.asarray(adj_mat.sum(axis=1)))
                 loopy_degrees=self.loopy_degree(degrees)
                 
-                loopy_lapl=np.diag(loopy_degrees)-adj_mat.toarray()
+                loopy_lapl=sparse.diags(loopy_degrees,0)-adj_mat
                 
                 return loopy_lapl
 
