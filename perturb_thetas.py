@@ -1,0 +1,3 @@
+import kuramoto
+import numpy
+
