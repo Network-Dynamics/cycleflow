@@ -1,16 +1,26 @@
 *  How loopiness affects scaling of perturbation
      Tree:
         1. Edge perturbation: constant
-        2. Node perturbation: scale as -d
+        2. Node perturbation: -d
+
 
      Cycle graph:
-        1. Edge perturbation: 1/d**2
-	2. Node perturbation: 1/d
+        1. Edge perturbation: constant
+	2. Node perturbation: -d
 
-     Grid graph:
+
+     Grid graph (2d):
         1. Edge perturbation: 1/d
 	2. Node perturbation: -ln(d)
-	             
+
+     Grid graph (3d):
+        1. Edge perturbation: 1/d^2
+	2. Node perturbation: 1/d
+
+
+ Maybe related to diameter/size?  
+
+             
 *  It's all connected to the meta graph resistances
      1.  What if the meta graph has negative weights?
 
