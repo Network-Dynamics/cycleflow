@@ -1,5 +1,12 @@
 import numpy as np
 from scipy.integrate import odeint 
+import networkx as nx
+
+
+
+
+
+
 
 
 
@@ -51,11 +58,13 @@ def try_find_fps(ntry,M,Mw, P, tmax=200, tol=10e-4):
                 thetas=initguess
                 t=0
                 not_converged=True
+
                 while t<tmax and not_converged:
                     not_converged, thetas=integrate_for(large_time, thetas, tol=tol,args=(M,Mw,P))
-                    t+=tmax
+                    t+=large_time
 
                 if not_converged==False:
-                    return initguess, thetas
+                    return thetas, {'initguess':initguess}
    
+
 
