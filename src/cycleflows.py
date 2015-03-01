@@ -5,8 +5,10 @@ from scipy.sparse import csr_matrix
 
 def dF_with_distance(G, src_a=None, src_b=None):
         allnodes=G.nodes()
-
-        shortest_pathlengths_ordered=[nx.single_source_shortest_path_length(G, src_a)[node] for node in allnodes]
+        
+        
+        shortest_pathlengths=nx.single_source_shortest_path_length(G, src_a)
+        shortest_pathlengths_ordered=[shortest_pathlengths[node] for node in allnodes]
 
         source_vector=csr_matrix((G.number_of_nodes(),1))        
         src_a_ind=allnodes.index(src_a)
