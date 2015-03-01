@@ -38,7 +38,7 @@ def cf_decay_with_dist(size, p_rewire):
 	G=rpg.RandomPlanarGraph(size, p_rewire)
 	a,b=G.choose_2_central_nodes()
 	
-	dists, cfs=zip(*cf.dF_with_distance(G, src_a=a, src_b=b))
+	dists, cfs=cf.dF_with_distance(G, src_a=a, src_b=b)
 	
 	
 	return calculate_mean_and_sd(dists, cfs)
