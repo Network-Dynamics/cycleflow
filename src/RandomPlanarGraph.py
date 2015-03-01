@@ -60,7 +60,7 @@ class RandomPlanarGraph(nx.Graph):
                         
         
         def loopy_laplacian(self):
-                adj_mat=nx.adjacency_matrix(self)
+                adj_mat=nx.to_scipy_sparse_matrix(self,format='csr')
                 degrees=np.squeeze(np.asarray(adj_mat.sum(axis=1)))
                 loopy_degrees=self.loopy_degree(degrees)
                 
