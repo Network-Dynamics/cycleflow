@@ -9,6 +9,7 @@ class VoronoiPlanarGraph():
     """
     def __init__(self, size):
         vor=self.__gen_voronoi(size)
+        self.vor=vor
         self.graph=self.__voronoi_graph(vor)
         self.dual_graph=self.__voronoi_loopy_dual(vor)
         
@@ -30,7 +31,10 @@ class VoronoiPlanarGraph():
         for ridge in vor.ridge_vertices:
             if -1 not in ridge: 
                 G.add_edge(*ridge)
-    
+        
+#        for node in G.nodes():
+ #           G.node['cycle']=
+         
         if with_coords:
             for node in G.nodes():
                 G.node[node]['pos']=tuple(vor.vertices[node])
