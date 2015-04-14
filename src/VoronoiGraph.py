@@ -2,16 +2,20 @@ from scipy.spatial import Voronoi
 import numpy as np
 import networkx as nx
 
-
 class VoronoiPlanarGraph():
     """
     add docs here
     """
-    def __init__(self, size):
-        vor=self.__gen_voronoi(size)
-        self.vor=vor
-        self.graph=self.__voronoi_graph(vor)
-        self.dual_graph=self.__voronoi_loopy_dual(vor)
+    def __init__(self, size, points=None, with_coords=True):
+
+        if points:
+            vor=Voronoi(points)
+        else:
+            vor=self.__gen_voronoi(size)
+
+        self.with_coords=with_coords
+        self.graph=self.__voronoi_graph(vor, with_coords=with_coords)
+        self.dual_graph=self.__voronoi_loopy_dual(vor, with_coords=with_coords)
         
     def __gen_voronoi(self, size):
         """
@@ -28,12 +32,20 @@ class VoronoiPlanarGraph():
         G=nx.Graph()
     
         #We select all the voronoi ridges that doesn't stretch to infinity
-        for ridge in vor.ridge_vertices:
-            if -1 not in ridge: 
-                G.add_edge(*ridge)
-        
-#        for node in G.nodes():
- #           G.node['cycle']=
+        for num,region in enumerate(vor.regions):
+            if region and -1 not in region: 
+                region_point=np.where(vor.point_region==num)[0][0]
+
+                edges=zip(region,region[1:]+[region[0]])
+                for u,v in edges:
+                    if G.has_edge(u,v):
+                        G[u][v]['cycle2']=region_point
+                    else:
+                        G.add_edge(u,v)
+                        G[u][v]['cycle1']=region_point
+
+
+                
          
         if with_coords:
             for node in G.nodes():
@@ -70,3 +82,41 @@ class VoronoiPlanarGraph():
                 H.node[node]['pos']=tuple(vor.points[node])
     
         return H
+   
+    def delete_num_edges(self,num):
+        edgeidx_todel=np.random.choice(np.arange(self.graph.number_of_edges()), size=num, replace=False)
+        alledges=self.graph.edges()
+        edges_todel=[alledges[idx] for idx in edgeidx_todel]
+
+        for u,v in edges_todel:
+            try:    #we don't do anything if it's a boundary edge
+                c1=self.graph[u][v]['cycle1']
+                c2=self.graph[u][v]['cycle2']
+          
+                self.graph.remove_edge(u,v)
+
+                for nei in self.dual_graph.neighbors(c2):
+                   self.dual_graph.add_edge(c1, nei)
+
+                self.dual_graph.remove_node(c2)
+
+                for na,nb in self.graph.edges():
+                    if self.graph[na][nb]['cycle1']==c2:
+                        self.graph[na][nb]['cycle1']==c1
+                    try:
+                        if self.graph[na][nb]['cycle2']==c2:
+                            self.graph[na][nb]['cycle2']==c1
+                    except:
+                        pass
+
+            except KeyError:
+                pass
+                        
+    def laplacian(self):
+        return np.asarray(nx.laplacian_matrix(self.graph))
+
+    def loopy_laplacian(self):
+        A = np.asarray(nx.to_numpy_matrix(self.dual_graph))
+        I = np.identity(A.shape[0])
+        D = I*np.sum(A,axis=1)
+        return D - A + np.diag(np.diag(A))
