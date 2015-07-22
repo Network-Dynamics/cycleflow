@@ -1,0 +1,74 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: cycleflow5.aux
+I couldn't open database file networks.bib
+---line 84 of file cycleflow5.aux
+ : \bibdata{cycleflow5Notes,networks
+ :                                  ,power,publwi}
+I'm skipping whatever remains of this command
+The style file: apsrev.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: cycleflow5Notes.bib
+Warning--entry type for "Note1" isn't style-file defined
+--line 1 of file cycleflow5Notes.bib
+Warning--entry type for "Note2" isn't style-file defined
+--line 2 of file cycleflow5Notes.bib
+Warning--I didn't find a database entry for "Dura04"
+Warning--I didn't find a database entry for "Kati10"
+Warning--I didn't find a database entry for "Kura84"
+Warning--I didn't find a database entry for "Stro00"
+Warning--I didn't find a database entry for "Aceb05"
+Warning--I didn't find a database entry for "Newm10"
+Warning--I didn't find a database entry for "14bifurcation"
+Warning--I didn't find a database entry for "Dies10"
+Warning--I didn't find a database entry for "UCTE04"
+Warning--I didn't find a database entry for "Pour06"
+Warning--I didn't find a database entry for "UCTE07"
+Warning--I didn't find a database entry for "Pesc14"
+Warning--I didn't find a database entry for "MATPOWER"
+Warning--I didn't find a database entry for "Mach08"
+Warning--I didn't find a database entry for "Hert06"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 2 entries,
+            3411 wiz_defined-function locations,
+            1188 strings with 10742 characters,
+and the built_in function-call counts, 570 in all, are:
+= -- 44
+> -- 0
+< -- 0
++ -- 4
+- -- 0
+* -- 40
+:= -- 73
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 10
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 50
+empty$ -- 57
+format.name$ -- 0
+if$ -- 107
+int.to.chr$ -- 1
+int.to.str$ -- 3
+missing$ -- 6
+newline$ -- 21
+num.names$ -- 0
+pop$ -- 30
+preamble$ -- 1
+purify$ -- 8
+quote$ -- 0
+skip$ -- 25
+stack$ -- 0
+substring$ -- 26
+swap$ -- 14
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 12
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 30
+(There was 1 error message)

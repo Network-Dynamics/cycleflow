@@ -1,0 +1,220 @@
+\begin{thebibliography}{29}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Durand and Weaire}(2004)}]{Dura04}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Durand}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Weaire}},
+  \bibinfo{journal}{Phys. Rev. E} \textbf{\bibinfo{volume}{70}},
+  \bibinfo{pages}{046125} (\bibinfo{year}{2004}).
+
+\bibitem[{\citenamefont{Katifori et~al.}(2010)\citenamefont{Katifori,
+  Sz\"oll\ifmmode~\mbox{\H{o}}\else \H{o}\fi{}si, and Magnasco}}]{Kati10}
+\bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Katifori}},
+  \bibinfo{author}{\bibfnamefont{G.~J.}
+  \bibnamefont{Sz\"oll\ifmmode~\mbox{\H{o}}\else \H{o}\fi{}si}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{M.~O.}
+  \bibnamefont{Magnasco}}, \bibinfo{journal}{Phys. Rev. Lett.}
+  \textbf{\bibinfo{volume}{104}}, \bibinfo{pages}{048704}
+  (\bibinfo{year}{2010}).
+
+\bibitem[{\citenamefont{Kuramoto}(1975)}]{Kura75}
+\bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kuramoto}}, in
+  \emph{\bibinfo{booktitle}{International Symposium on on Mathematical Problems
+  in Theoretical Physics}}, edited by
+  \bibinfo{editor}{\bibfnamefont{H.}~\bibnamefont{Araki}}
+  (\bibinfo{publisher}{Springer}, \bibinfo{address}{New York},
+  \bibinfo{year}{1975}), Lecture Notes in Physics Vol. 39, p.
+  \bibinfo{pages}{420}.
+
+\bibitem[{\citenamefont{Strogatz}(2000)}]{Stro00}
+\bibinfo{author}{\bibfnamefont{S.~H.} \bibnamefont{Strogatz}},
+  \bibinfo{journal}{Physica D: Nonlinear Phenomena}
+  \textbf{\bibinfo{volume}{143}}, \bibinfo{pages}{1} (\bibinfo{year}{2000}).
+
+\bibitem[{\citenamefont{Acebr\'on et~al.}(2005)\citenamefont{Acebr\'on,
+  Bonilla, P\'erez~Vicente, Ritort, and Spigler}}]{Aceb05}
+\bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Acebr\'on}},
+  \bibinfo{author}{\bibfnamefont{L.~L.} \bibnamefont{Bonilla}},
+  \bibinfo{author}{\bibfnamefont{C.~J.} \bibnamefont{P\'erez~Vicente}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Ritort}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Spigler}},
+  \bibinfo{journal}{Rev. Mod. Phys.} \textbf{\bibinfo{volume}{77}},
+  \bibinfo{pages}{137} (\bibinfo{year}{2005}).
+
+\bibitem[{\citenamefont{Newman}(2010)}]{Newm10}
+\bibinfo{author}{\bibfnamefont{M.~E.~J.} \bibnamefont{Newman}},
+  \emph{\bibinfo{title}{Networks -- An Introduction}}
+  (\bibinfo{publisher}{Oxford University Press}, \bibinfo{address}{Oxford},
+  \bibinfo{year}{2010}).
+
+\bibitem[{\citenamefont{{D. Manik et al.}}(2014)}]{14bifurcation}
+\bibinfo{author}{\bibnamefont{{D. Manik et al.}}}, \bibinfo{journal}{Eur. Phys.
+  J. Special Topics} \textbf{\bibinfo{volume}{223}}, \bibinfo{pages}{2527}
+  (\bibinfo{year}{2014}).
+
+\bibitem[{\citenamefont{Diestel}(2010)}]{Dies10}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Diestel}},
+  \emph{\bibinfo{title}{Graph Theory}} (\bibinfo{publisher}{Springer},
+  \bibinfo{address}{New York}, \bibinfo{year}{2010}).
+
+\bibitem[{\citenamefont{Kramer et~al.}(2005)\citenamefont{Kramer, Ohtsuki, and
+  Kettemann}}]{Kram05}
+\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Kramer}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Ohtsuki}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Kettemann}},
+  \bibinfo{journal}{Physics Reports} \textbf{\bibinfo{volume}{417}},
+  \bibinfo{pages}{211} (\bibinfo{year}{2005}).
+
+\bibitem[{\citenamefont{Huang et~al.}(2009)\citenamefont{Huang, Korniss, and
+  Nayak}}]{Huan09}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Huang}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Korniss}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.~K.} \bibnamefont{Nayak}},
+  \bibinfo{journal}{Phys. Rev. E} \textbf{\bibinfo{volume}{80}},
+  \bibinfo{pages}{045101} (\bibinfo{year}{2009}).
+
+\bibitem[{\citenamefont{(Ed.)}(2012)}]{Kett12}
+\bibinfo{editor}{\bibfnamefont{S.~K.} \bibnamefont{(Ed.)}}, ed.,
+  \emph{\bibinfo{title}{Localisation 2011}} (\bibinfo{publisher}{World
+  Scientific}, \bibinfo{address}{Singapore}, \bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Labavic et~al.}(2014)\citenamefont{Labavic, Suciu,
+  Meyer-Ortmanns, and Kettemann}}]{Laba14}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Labavic}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Suciu}},
+  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Meyer-Ortmanns}},
+  \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Kettemann}},
+  \bibinfo{journal}{The European Physical Journal Special Topics}
+  \textbf{\bibinfo{volume}{223}}, \bibinfo{pages}{2517} (\bibinfo{year}{2014}).
+
+\bibitem[{Note1()}]{Note1}
+Note1, \bibinfo{note}{in lattices with subgrid symmetry states exist which
+  decay exponetially with the square root of the distance.}
+
+\bibitem[{\citenamefont{Klein and Randić}(1993)}]{Klei93}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Klein}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Randić}},
+  \bibinfo{journal}{Journal of Mathematical Chemistry}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{81} (\bibinfo{year}{1993}).
+
+\bibitem[{Note2()}]{Note2}
+Note2, \bibinfo{note}{recent work has shown that in reality, there a scaling
+  relationship between effective hydraulic diameter $d_\protect \mathrm {eff}$
+  and external vein diameter $R$, $d_\protect \mathrm {eff} \sim R^{1-\gamma
+  /4}$ with $\gamma \approx 0.6$. The radius parameter in Poiseuille's law
+  should therefore really by corrected in this way. However, this relationship
+  is not relevant for the point of this paper.}
+
+\bibitem[{\citenamefont{Strogatz}(2001)}]{Stro01}
+\bibinfo{author}{\bibfnamefont{S.~H.} \bibnamefont{Strogatz}},
+  \bibinfo{journal}{Nature} \textbf{\bibinfo{volume}{410}},
+  \bibinfo{pages}{268} (\bibinfo{year}{2001}).
+
+\bibitem[{\citenamefont{Pourbeik et~al.}(2006)\citenamefont{Pourbeik, Kundur,
+  and Taylor}}]{Pour06}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Pourbeik}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Kundur}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Taylor}},
+  \bibinfo{journal}{IEEE Power and Energy Magazine}
+  \textbf{\bibinfo{volume}{4}}, \bibinfo{pages}{22} (\bibinfo{year}{2006}).
+
+\bibitem[{\citenamefont{{European Network of Transmission System Operators for
+  Electricity}}(2004)}]{UCTE04}
+\bibinfo{author}{\bibnamefont{{European Network of Transmission System
+  Operators for Electricity}}}, \emph{\bibinfo{title}{Continental europe
+  operation handbook}},
+  \bibinfo{howpublished}{\url{https://www.entsoe.eu/publications/system-operations-reports/operation-handbook}
+  (retrieved 20/03/2015)} (\bibinfo{year}{2004}).
+
+\bibitem[{\citenamefont{Pesch et~al.}(2014)\citenamefont{Pesch, Allelein, and
+  Hake}}]{Pesc14}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Pesch}},
+  \bibinfo{author}{\bibfnamefont{H.-J.} \bibnamefont{Allelein}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.-F.} \bibnamefont{Hake}},
+  \bibinfo{journal}{Eur. Phys. J. Special Topics}
+  \textbf{\bibinfo{volume}{223}}, \bibinfo{pages}{2561} (\bibinfo{year}{2014}).
+
+\bibitem[{\citenamefont{Wood et~al.}(2013)\citenamefont{Wood, Wollenberg, and
+  Shebl\'e}}]{Wood13}
+\bibinfo{author}{\bibfnamefont{A.~J.} \bibnamefont{Wood}},
+  \bibinfo{author}{\bibfnamefont{B.~F.} \bibnamefont{Wollenberg}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{G.~B.}
+  \bibnamefont{Shebl\'e}}, \emph{\bibinfo{title}{Power Generation, Operation
+  and Control}} (\bibinfo{publisher}{John Wiley \& Sons}, \bibinfo{address}{New
+  York}, \bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Rohden et~al.}(2012)\citenamefont{Rohden, Sorge, Timme,
+  and Witthaut}}]{12powergrid}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Rohden}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Sorge}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Timme}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Witthaut}},
+  \bibinfo{journal}{Phys. Rev. Lett.} \textbf{\bibinfo{volume}{109}},
+  \bibinfo{pages}{064101} (\bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Hutcheon and Bialek}(2013)}]{Hutc13}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Hutcheon}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Bialek}}, in
+  \emph{\bibinfo{booktitle}{PowerTech (POWERTECH), 2013 IEEE Grenoble}}
+  (\bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Braess}(1968)}]{Brae68}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Braess}},
+  \bibinfo{journal}{Unternehmensforschung} \textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{258} (\bibinfo{year}{1968}).
+
+\bibitem[{\citenamefont{Motter}(2004)}]{Mott04}
+\bibinfo{author}{\bibfnamefont{A.~E.} \bibnamefont{Motter}},
+  \bibinfo{journal}{Phys. Rev. Lett.} \textbf{\bibinfo{volume}{93}},
+  \bibinfo{pages}{098701} (\bibinfo{year}{2004}).
+
+\bibitem[{\citenamefont{Witthaut and Timme}(2012)}]{12braess}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Witthaut}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Timme}},
+  \bibinfo{journal}{New J. Phys.} \textbf{\bibinfo{volume}{14}},
+  \bibinfo{pages}{083036} (\bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Witthaut and Timme}(2013)}]{13nonlocal}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Witthaut}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Timme}},
+  \bibinfo{journal}{Eur. Phys. J. B} \textbf{\bibinfo{volume}{86}},
+  \bibinfo{pages}{377} (\bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Van~Hertem et~al.}(2006)\citenamefont{Van~Hertem,
+  Verboomen, Purchala, Belmans, and Kling}}]{Hert06}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Van~Hertem}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Verboomen}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Purchala}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Belmans}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Kling}}, in
+  \emph{\bibinfo{booktitle}{The 8th IEEE International Conference on AC and DC
+  Power Transmission}} (\bibinfo{year}{2006}), pp. \bibinfo{pages}{58--62}.
+
+\bibitem[{\citenamefont{Zimmerman et~al.}(2011)\citenamefont{Zimmerman,
+  Murillo-Sanchez, and Thomas}}]{MATPOWER}
+\bibinfo{author}{\bibfnamefont{R.~D.} \bibnamefont{Zimmerman}},
+  \bibinfo{author}{\bibfnamefont{C.~E.} \bibnamefont{Murillo-Sanchez}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{R.~J.}
+  \bibnamefont{Thomas}}, \bibinfo{journal}{IEEE Transactions on Power Systems}
+  \textbf{\bibinfo{volume}{26}}, \bibinfo{pages}{12} (\bibinfo{year}{2011}).
+
+\bibitem[{\citenamefont{Levstein et~al.}(2009)\citenamefont{Levstein,
+  Maldonado, and Penazzi}}]{levstein2009tight}
+\bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Levstein}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Maldonado}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Penazzi}},
+  \bibinfo{journal}{arXiv preprint arXiv:0906.0116}  (\bibinfo{year}{2009}).
+
+\end{thebibliography}

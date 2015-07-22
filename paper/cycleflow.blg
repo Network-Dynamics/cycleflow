@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: cycleflow.aux
+The style file: apsrev.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: cycleflowNotes.bib
+Warning--entry type for "Note1" isn't style-file defined
+--line 1 of file cycleflowNotes.bib
+Warning--entry type for "Note2" isn't style-file defined
+--line 2 of file cycleflowNotes.bib
+Database file #2: cycle.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 29 entries,
+            3411 wiz_defined-function locations,
+            1336 strings with 14598 characters,
+and the built_in function-call counts, 17763 in all, are:
+= -- 1024
+> -- 507
+< -- 78
++ -- 397
+- -- 125
+* -- 2313
+:= -- 1976
+add.period$ -- 29
+call.type$ -- 29
+change.case$ -- 119
+chr.to.int$ -- 29
+cite$ -- 29
+duplicate$ -- 1657
+empty$ -- 1586
+format.name$ -- 322
+if$ -- 3383
+int.to.chr$ -- 1
+int.to.str$ -- 30
+missing$ -- 261
+newline$ -- 102
+num.names$ -- 83
+pop$ -- 483
+preamble$ -- 1
+purify$ -- 116
+quote$ -- 0
+skip$ -- 672
+stack$ -- 0
+substring$ -- 581
+swap$ -- 1230
+text.length$ -- 63
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 166
+warning$ -- 0
+while$ -- 76
+width$ -- 0
+write$ -- 295
+(There were 2 warnings)

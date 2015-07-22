@@ -57,8 +57,18 @@
 \title{Topological reponse theory for flow networks: From local failures to global blackouts}
 \title{Topological reponse theory for flow networks}
 
+\author{Henrik Ronellenfitsch}
+\affiliation{Max Planck Institute for Dynamics and Self-Organization (MPIDS), 
+ 37077 G\"ottingen, Germany}
+\author{Debsankha Manik}
+\affiliation{Max Planck Institute for Dynamics and Self-Organization (MPIDS), 
+ 37077 G\"ottingen, Germany}
+ 
 \author{Dirk Witthaut}
-
+\affiliation{Forschungszentrum J\"ulich, Institute for Energy and Climate Research -
+	Systems Analysis and Technology Evaluation (IEK-STE),  52428 J\"ulich, Germany}
+\affiliation{Institute for Theoretical Physics, University of Cologne, 
+		50937 K\"oln, Germany}
 
 \date{\today }
 
@@ -131,7 +141,7 @@ with an antisymmetric function $f(\cdot)$ and the transport capacity or conducti
     \sum_{\ell=1}^N K_{j \ell} f(\phi_\ell - \phi_j) = P_j \, .
     \label{eqn:continuity2}
 \ee
-for all $j = 1,\ldots, N$ nodes of the network. This holds for DC electric circuits (`Kirchhoffs' law'), hydraulic networks \cite{Dura04} or vascular networks of plants \cite{Kati10}. AC power grids, which form the basis of our technical infrastructure, are discussed in more detail in section \ref{sec:powergrid}. Equation (\ref{eqn:continuity2}) also describes the steady state of oscillator networks such as the celebrated Kuramoto model \cite{Kura84,Stro00,Aceb05}, where $\phi_j$ is a phase variable.
+for all $j = 1,\ldots, N$ nodes of the network. This holds for DC electric circuits (`Kirchhoffs' law'), hydraulic networks \cite{Dura04} or vascular networks of plants \cite{Kati10}. AC power grids, which form the basis of our technical infrastructure, are discussed in more detail in section \ref{sec:powergrid}. Equation (\ref{eqn:continuity2}) also describes the steady state of oscillator networks such as the celebrated Kuramoto model \cite{Kura75,Stro00,Aceb05}, where $\phi_j$ is a phase variable.
 
 An important question in network operation is the resilience to local damages: How does the network respond when the capacity of a single edge $K_{j \ell}$ is reduced or vanishes entirely? Is it stable or does the local failure induce a global blackout? Here we introduce a geometric theory of flow re-distribution after local damages based on the \emph{dual representation} of the network flow problem. To this end we introduce the edge incidence matrix $E \in \mathbb{R}^{N \times L}$, $L$ being the total number of edges \cite{Newm10}. The elements of the matrix are $E_{j,e}=1$ if the node $j$ is the head of the edge $e$, $E_{j,e}=-1$ if $j$ is the tail of $e$ and $E_{j,e}=0$ otherwise. For the calculations we have to choose an orientation of the edges, which is arbitrary but must kept fixed. The continuity equation (\ref{eqn:continuity1}) then reads
 \be
@@ -179,6 +189,7 @@ where $g$ denotes the derivative of the inverse of the coupling function, $g = (
 The inhomogeneity
 \be
    q_d = C_{d,e_0} \, g(F^{(0)}_{e_0}/K_{e_0}) F^{(0)}_{e_0}/K_{e_0}
+   \label{eqn:cflow-inhom}
 \ee
 is non-zero only for the two cycles adjacent to edge $e_0$. Calling these two cycles $c_1$ and $c_2$, we have $q_{c_1} = - q_{c_2}$. If the edge $e_0$ lies on the boundary of the network, only one element is non-zero.
 
@@ -191,22 +202,22 @@ the so-called \emph{dual graph} \cite{Dies10}. In particular, we obtain the foll
 
 \begin{prop}
 \label{thm:domains}
-A perturbation of the capacity $K_{e_0}$ of a single edge $e_0$ in a supply network induces cycles flows $f_c$ which are to leading order given by equation (\ref{eqn:cflow-lin}). If the network is planar, then the dual graph can be decomposed into exactly two connected subgraphs (`domains') $\DD_+$ and $\DD_-$, with $f_c \ge 0 \,  \forall c \in  \DD_+$ and $f_c \le 0 \,  \forall c \in  \DD_-$. The domain boundary includes the perturbed edge $e_0$, i.e. the two cycles adjacent to $e_0$ belong to different domains.  
+A perturbation of the capacity $K_{e_0}$ of a single edge $e_0$ in a supply network induces cycles flows $f_c$ which are to leading order given by equation (\ref{eqn:cflow-lin}). If the network is planar, then the dual graph can be decomposed into at most two connected subgraphs (`domains') $\DD_+$ and $\DD_-$, with $f_c \ge 0 \,  \forall c \in  \DD_+$ and $f_c \le 0 \,  \forall c \in  \DD_-$. The domain boundary, if it exists, includes the perturbed edge $e_0$, i.e. the two cycles adjacent to $e_0$ belong to different domains.  
 \end{prop}
 
 A proof is given in appendix \ref{sec:proof1}. The implications of the proposition are illustrated in figure \ref{fig:scheme} (c), showing the induced cycle flows when the dashed edge is damaged such that its transmission capacity decreases. The cycle flows are positive in one domain and negative in the other domain. If the perturbed edge lies on the boundary of a finite network, then there is only one domain and all cycle flows are oriented in the same direction.
 
-With this result we can obtain a purely geometric prediction of how the flow of all edges in the network change after the perturbation. For this, we need some additional information about the magnitude of the cycle flows in addition to the signs. We consider the upper and lower bound for the cycle flows $f_c$ at a given distance to the cycle $c_1$ with $\kappa q_{c_1} > 0$ and the cycles  $c_2$ with $\kappa q_{c_2} > 0$, respectively:
+With this result we can obtain a purely geometric prediction of how the flow of all edges in the network change after the perturbation. For this, we need some additional information about the magnitude of the cycle flows in addition to the direction. We consider the upper and lower bound for the cycle flows $f_c$ at a given distance to the cycle $c_1$ with $\kappa q_{c_1} > 0$ and the cycles  $c_2$ with $\kappa q_{c_2} < 0$, respectively:
 \begin{align}
    u_d   &= \max_{c, {\rm dist}(c,c_1) = d}  f_c \nn \\
-  \ell_d &=  \min_{c, {\rm dist}(c,c_2) = d}  f_c. \nn \\
+  \ell_d &=  \min_{c, {\rm dist}(c,c_2) = d}  f_c. 
 \end{align}
 
 
 \begin{prop}
 \label{thm:decay}
 The maximum (minimum) value of the cycle flows decreases (increases) monotonically with the 
-distance to the reference cycles $c_1$ and $c_2$, respectively:
+distance $d$ to the reference cycles $c_1$ and $c_2$, respectively:
 \begin{align}
    & u_d  \le u_{d-1}, \qquad 1 \le d \le d_{\rm max}.  \nn \\
    & \ell_d  \ge \ell_{d-1},  \qquad 1 \le d \le d_{\rm max}.
@@ -221,20 +232,25 @@ distance to the reference cycles $c_1$ and $c_2$, respectively:
 \caption{
 \label{fig:scheme}
 Schematic representation of the algorithm \ref{thm:alg1} to predict
-flow changes after the damage of a single edge (dashed).
+flow changes after the damage ($\kappa < 0$) of a single edge (dashed).
 }
 \end{figure}
 
-A proof is given in appendix \ref{sec:proof2}. Strict monotonicity can be proven when some additional technical assumptions are satisfied, which is expected to hold in most cases. In fact, one finds that the decay is rather fast for many networks of interest:
+We note that $d$ denotes the distance of two cycles or faces, i.e. the length of the shortest 
+path between the two faces in the dual graph. A proof is given in appendix \ref{sec:proof2}. 
+Strict monotonicity can be proven when some additional technical assumptions are satisfied, 
+which is expected to hold in most cases. In fact, one finds that the decay is rather fast for 
+many networks of interest:
 
 (1) For two-dimensional lattices with regular topology and edge weights the cycle flows decay with the inverse distance. A proof for square lattices in the continuum limit is given in appendix \ref{sec:proof-regular}.
 
-(2) For two-dimensional lattices with regular topology but disordered edge weights, the eigenstates of $A$ generally decay exponentially with the euclidean distance. This statement is a manifestation of Anderson localization and was confirmed numerically for many random network ensembles \textbf{[XXX references XXX]}.
+(2) For two-dimensional lattices with regular topology but disordered edge weights, the eigenstates of $A$ generally decay exponentially with the euclidean distance. This statement is a manifestation of Anderson localization and was confirmed numerically for many random network ensembles \cite{Kram05,Huan09,Kett12,Laba14}.
 \footnote{In lattices with subgrid symmetry states exist which decay exponetially with the square root of the distance.}.  
   
 These results imply that the cycle flows $|f_c|$ decay rather rapidly with the distance such that the reponse of a supply network is confined to the `vicinity' of the damaged edge. However, it has to be noted that the distance is defined  for the dual graph, not the original graph, and that the rigoros results hold only for planar graphs. The situation is much more involved in non-planar graphs, as an edge can link regions which would be far apart otherwise.
 
-We are thus in the position to predict the change of network flows on a purely topological basis according to the following algorithm whose steps are illustrated in figure \ref{fig:scheme}.
+We are thus in the position to predict the change of network flows after the perturbation of a single edge
+on a purely topological basis according to the following algorithm whose steps are illustrated in figure \ref{fig:scheme}.
 
 \begin{alg}
 \label{thm:alg1}
@@ -251,102 +267,168 @@ The direction of flow change of each edge is then given by the direction of the 
 \end{enumerate}
 \end{alg}
 
-
-
+%\begin{figure}[tb]
+%\includegraphics[width=6.5cm]{pics/detailed_perturbation-7.png}
+%\includegraphics[width=8cm]{pics/detailed_perturbation-11.png}
+%%\includegraphics[width=6cm]{pics/detailed_perturbation-10.png}
+%%\includegraphics[width=6cm]{pics/detailed_perturbation-9.png}
+%\caption{
+%\label{fig:leaf1}
+%Cycle flows induced by the damage of a single vein in the vascular network of a leaf.
+%The network consists of two connected domains with clockwise (blue) and
+%counter-clockwise (red) cycle flows, as described by proposition \ref{thm:domains}
+%The strength of the flows, indicated by the cycle radius, decays rapidly with the 
+%distance to the damaged vein.
+%Shown are results of a numerical simulation based on real-world leaf data
+%as described in \textbf{[XXX]}. The lower plot show a blow-up of the leaf
+%around the perturbed vein.
+%}
+%\end{figure}
 
 \section{Linear flow in Planar graphs}
 \label{sec:linflow-planar}
-In case of linear flow, i.e.  where the flow across an edge is linearly 
-proportional to the potential difference across it, lends itself to easier 
-analysis because \eqref{eqn:def-A} simplifies to
 
+In many important applications the flow is directly proportional to the
+potential drop along an edge of the network.
+Then the equation for the cycle flows (\ref{eqn:cflow-lin}) becomes exact,
+with $g \equiv 1$ and the matrix $A$ given by 
 \begin{align}
    \label{eqn:lin-Lapldef}
    A_{d,c} &= \sum_{e=1}^L C_{d,e} C_{c,e} \\
            &=
 	     \begin{cases}
-	     \text{Number of edges shared by faces c and d} & \text{if } c\neq d\\
-	     \text{Number of edges in face c} & \text{if } c=d
+	     \text{No. of edges shared by faces c and d} & \text{if } c\neq d\\
+	     \text{No. of edges in face c} & \text{if } c=d.
 	     \end{cases}
+    \nonumber	     
 \end{align}
-	
-Then the matrix $A$ can be seen as a part of the Laplacian of the dual Graph 
-of $G$, the original network.  
-
-Let $L$ be a full Laplacian of the dual graph $D(G)$, whose $1$st row 
-corresponds to the \emph{unbounded face} of $G$.  Then $A$ can 
-be simply obtained by deleting the first row and first column of $L$.  
-
-\begin{align*}
-L&=
-\left(
-\begin{array}{c|ccc}
-L_{11} & L_{12} & L_{13} & \cdots \\
-\hline
-L_{21} &&&\\
-L_{31} && A &\\
-L_{41} &&&         
-\end{array}
-\right)
-\end{align*}
-
-Since the laplacian of a graph is closely connected to the resistance distance 
-\cite{klein93}, we can obtain the relationship
+Hence, the matrix $A$ can be seen as a part of the Laplacian of the dual  
+of $G$, the original network, excluding the row and column corresponding to 
+the unbounded face of $G$. A formal solution of Eq.~(\ref{eqn:cflow-lin}) 
+shows that the induced cycle flow $f_c$ depends on the toplogy of the 
+network only via the so-called `resistance distances' $R$ to the cycles
+$c_1$ and $c_2$,
 \begin{align}
-\label{eq:fc-resdist}
-f_c&\propto R_{c,c_1}-R_{c,c_2}
+    \label{eq:fc-resdist}
+   f_c &\propto R_{c,c_1}-R_{c,c_2}
 \end{align}
 (for derivation see Appendix \ref{sec:resdist}).
+Resistance distances have been first introduced for networks of electric resistors,
+where they describe the effective resistance between two nodes \cite{Klei93},
+and provide a metric on graphs.
+\dirk{XXX @ Debsanka: That't nice, but what is it good for? XXX}
 
 Now we discuss how the decay of cycle flow differs in different network 
 topologies.  
 
-\subsection{Square lattice}
+To analyze how the topology affects the response of a flow network, in particular
+its decay with the distance, we simulate the flow change for a collection of regular and 
+random lattices. 
+For a square lattice, we find that the cycle flows are related to the 
+distance from the source of the perturbation by a power law. Near the boundary of the finite
+network, decay becomes much more rapid (Figure \ref{fig:decay-sqgrid}). 
+Topological randomness is introduced by merging a nodes with a randomly chosen 
+neighbours with a small probability $p$.  As we see in figure \ref{fig:decay-sqgrid}, the 
+introduction of randomness slows down the decay of cycle flows.  
+However, there still exists a 
+region extending from the source of the perturbation till ~$40$\% of the 
+diameter of the graph where the decay of cycle flow is linear.  
+
+
+\dirk{XXX Left: Flow strength in color code
+for a map of the lattice as in the paper by Kettemann et al. Right: Magnitude $|f_c|$ versus
+distance without, with small and with strong randomness. Make a statement if the numerical 
+findings are consistent with the analytic results in appendix \ref{sec:proof-regular}.
+And please see my notes  about the the appropriate length scale below...}
 
 \begin{figure}
     \includegraphics[width=.9\columnwidth]{pics/decay_sqgrid}
-    \caption{Decay of cycle for in a square lattice of size 200x200}
-    \label{fig-decay-sqlat}
-\end{figure}
-
-We have computed the cycleflows in a $200\times 200$ square lattice, when the 
-link between the nodes $(0,0)$ and $(0,1)$ is perturbed.  The results are 
-shown in figure \ref{fig-decay-sqlat}, where we show how the cycleflows $f_c$ decay with 
-distance from the source of perturbation.  We see that cycle flow is inversely proportional to the distance from the 
-source of the perturbation, when the distance is small compared to the lattice 
-size.   However, the decay is much more rapid near the edge of the lattice.    
-
-\subsection{Effect of randomness in the lattice}
-Now we observe the effect of introducing randomness in the square lattice. For 
-each node, we merged it with one of its randomly chosen neighbours with 
-small probability $p$.  As we see in figure \ref{fig-decay-2p}, the 
-introduction of randomness slows down the decay of cycle flows.   
-
-\begin{figure}
-    \includegraphics[width=.9\columnwidth]{pics/decay_2p}	
-    \caption{Decay of cycle for in a square lattice with randomness factor $p$}
-    \label{fig-decay-2p}
-\end{figure}
-
-\begin{figure}
-    \includegraphics[width=.9\columnwidth]{pics/decay_2p_inv}	
-    \caption{Inverse of $f_c$ for in a square lattice with randomness factor $p$}
-    \label{fig-decay-2p-inv}
+    \includegraphics[width=.9\columnwidth]{pics/decay_log_log_sqgrid}}
+    \caption{(a) Decay of induced cycle flows in a square lattice of size 200x200 after the 
+	    failure of the edge edge between nodes (0,0) and (0,1). (b) The 
+	    log-log plot of the same showing power law decay}
+	    \label{fig:decay-sqgrid}
 \end{figure}
 
 
-However, as we see in figure \ref{fig-decay-2p-inv}, there still exists a 
-region extending from the source of the perturbation till ~$40$\% of the 
-diameter of the graph where the decay of cycle flow is linear.   
+
+\dirk{
+Dear Henrik and Debsankha, I have two comments on your results. 
+(1) In a previous version I recommended to show that the induced cycle flows are 
+proportional to the initial flow of the failing edge. You have argued that this is trivial 
+since the entire system is linear anyway. 
+But this assumption is only partially true. If you vary the strength of the perturbation
+$\kappa$ at \emph{a fixed edge} then the response is trivially propotional to $\kappa$.
+And also if you vary $F_e^{(0)}$ for \emph{a fixed edge} the response will be 
+trivially proportional to $F_e^{(0)}$. That's what the equations (\ref{eqn:cflow-lin}) 
+and (\ref{eqn:def-A}) tell us, assuming that the system is linear such that the function 
+$f$ is the identity such that the function $g$ uis constant.
+However, I claim something which is much stronger. My numerical test with the power 
+grids show that the reponse is proportional to $F_e^{(0)}$ \emph{regardless of which
+edge fails}. The only thing that matters is the cycle distance between failing edge and
+the observed edge, where you measure the perturbation. For a cycle distance $d_c=0$
+the proportionality factor is one and the correlation is almost perfect. That is what I show 
+in figure \ref{fig:case30q}.
+It't not so easily to clearly explain the difference and to show its importance. But I do thing
+that it is very important since it shows the \emph{universality} of our concept. All the 
+topology is not so interesting after all. In the moment I think that we should illustrate this
+result in the section on random networks, but I am not sure.
+}
+
+\dirk{
+(2) The second important question is what I tried to make clear on the telephone: What
+is the important length scale in a flow network. I argue that it is not the usual edge 
+distance of two edges but the \emph{cycle distance} of two edges. I give a rigorous 
+definition below. Basically $d_c(e_0,e_1) = 0$ means that the two edges $e_0$ and $e_1$ 
+are on the same cycle. I claim that all edges  $e_1$ with $d_c(e_0,e_1) = 0$ are equally 
+affected when the edge $e_0$ fails, regardless of their edge distance! For the power grid 
+example this claim definitely holds as shown by the perfect correlation coefficient in
+(see figure \ref{fig:case30q} c). Open questions are: Does this hold generally also for 
+random networks? Does it hold also for larger edge distances? To answer these two question 
+we should simulate random planar networks with cycles of very different size and analyze 
+which distance metric (edge vs. cycle) better predicts the decay of the response. I can think 
+of different options to do so, and maybe you find an even better option:
+(a) Do plots as in figure \ref{fig:case30q}, once with the cycle distance and once with
+the edge distance. I assume that the correlation factor $R$ is much  higher for the cycle 
+distance.  
+(b) Directly plot the normalized reponse $\Delta F_{e'}/F^{(0)}_e$ as a function of the
+distance between $e$ and $e'$ and analyze the correlation by means of the correlation 
+ratio or the mutual information, or I don't know. You have many experts on measuring 
+correlations at MPI DS.
+}
 
 
+\textbf{Definition of cycle distance:}
+The strength of the cycle flows is expected to decay rapidly with the distance, which has to be 
+understood as the graph-theoretic distance in the \emph{dual} graph (called $d_d$ in the following).
+Therefore also the change of the edge flows after a perturbation,
+\be
+   \Delta F_e = F'_e  - F_e^{(0)} = \sum_{c=1}^{L-N+1} f_c C_{c,e},
+\ee
+is expected to decay rapidly, where the relevant distance is still determined by the adjacent 
+cycles. We thus define the cycle distance of two edges $e_0$ and $e_1$ as the minimum distance 
+of the adjancent cycles in the dual graph, 
+\be
+  d_c(e_0,e_1) = 
+  \begin{cases}
+      0 & \text{if } |C_{c,e_0}| = |C_{c,e_1}| \,  \forall c \\
+      \min \limits_{\substack{c_0,c_1 \text{ s.t.} \\  |C_{c_0,e_0}| = 1 \\  |C_{c_1,e_1}| = 1}} 
+          d_d(c_0,c_1) +1
+      & \text{otherwise.} \\
+  \end{cases}
+  \label{def:cycledist}
+\ee
+We note that this distance can be strongly different from the common edge distance
+(called $d_e$ in the following), which is defined as the length of the shortest path from
+$e_0$ to $e_1$ in the repective line graph.
 
+\dirk{One remark. Maybe we should slightly change the definition by adding 1 to the formula
+\ref{def:cycledist} and defining $d_c(e,e) = 0$. Then we have a real distance in the mathematical 
+sense. At least I hope so. We would still have to check the triangle inequality.}
 
 
 \section{Vascular networks}
-%\textbf{XXX TODO XXX} The flow in vascular networks of leafs can be described by a potential flow as shown in \cite{Kati10}. As leafs should be naturally planar, our theorem can be used to predict the direction of flow changes after a damage to the leaf. As a first step I would suggest to do the following:
-%(1) Make a figure illustrating our approach for leafs. Show a photograph of the flows in a leaf and next to it the simulated flows to uillustrate that the model is valid. Then show flow changes after a damage, comparing simulations and our predictions showing that our method works. 
-%(2) Quantitative analysis: Compare simulated flow changes with predicted flow changes in a leaf when a main vein is damaged. We can use the real topology of a leaf extracted from measurements in EK's group.
+
 
 Vascular plants possess an intricate, highly reticulate network 
 supplying the leaf blade with water for gas exchange through
@@ -362,40 +444,7 @@ The leaf was chemically cleared and stained to make the complete network
 visible, then scanned at high resolution (3200 dpi) and the vascular
 network extracted using a vectorization approach. The result is a
 complete representation of the network topology and geometry.
-
-Flow through an edge is described by $F_e = k\frac{R_e^4}{L_e} (p_{e_0}
--p_{e_1}$, where $R_e$ is edge radius, $L_e$ is edge length, $p_{e_i}$
-is hydrostatic pressure at node $e_i$, and $k$ is a constant of 
-proportionality. This is basically Poiseuille's law.\footnote{Recent
-work has shown that in reality, there a scaling relationship between
-effective hydraulic diameter $d_\mathrm{eff}$ and external vein diameter
-$R$, $d_\mathrm{eff} \sim R^{1-\gamma/4}$ with $\gamma \approx 0.6$.
-The radius parameter in Poiseuille's law should therefore really by
-corrected in this way. However, this relationship is not relevant for
-the point of this paper.}
-The continuity equation is $\sum_e E_{i,e} F_e = P(1 + (N-2)\delta_{i,0})$,
-modeling uniform evaporation of water over the whole leaf blade 
-except at the petiole ($i=0$), which acts as an inlet.
-
-Since the flow equation is linear in the pressure difference, the
-flow change due to the perturbation is indeed exactly 
-(up to a constant factor) described by equation (\ref{eqn:cflow-lin}).
-The simulation results are shown in figure \ref{fig:vascular-network}.
-It is interesting to note that (a) the domain boundary between cycle
-flows of opposite orientation follows the leaf symmetry axis (the main
-vein) almost exactly. When perturbing other veins, the domain boundary
-similarly appears to follow the locally thickest veins.
-Additionally, (b) cycle flow strength on either sides of thick veins
-appears to jump when there is no domain boundary, effectively confining
-the perturbation to a localized region.
-A different localization behavior (c) can be observed by plotting
-maximum and minimum cycle flow as a function of shortest path distance
-on the dual graph. Approximately exponential decay is clearly discernible
-over large distances. The leaf network is thus disordered enough
-to show Anderson localization of the perturbation.
-We speculate that this may be functionally relevant for the plant,
-as damage in one part of the leaf has only local effects, leaving
-most of the rest functioning undisturbedly.
+\dirk{XXX Reference? XXX}
 
 \begin{figure}
     \includegraphics[width=.9\columnwidth]{pics/figure_simulations.pdf}
@@ -416,6 +465,8 @@ most of the rest functioning undisturbedly.
     perturbed edge $e_0$ and $d(c,c')$ is the shortest path distance
     between cycles $c$ and $c'$ in the dual network. 
     The definition of $f_\mathrm{min}$ is similar.
+    \dirk{XXX Can we please use the same definition as in the text, in particular
+    proposition \ref{thm:decay} and just refer to it? XXX}
     Solid lines act as a guide for the eye.
     Decay is approximately exponential, showing strong localization 
     of the perturbation,
@@ -426,14 +477,168 @@ most of the rest functioning undisturbedly.
     cycle flow magnitude, edge diameters are proportional to measured
     vein diameters but have been downscaled to improve clarity of the
     image.
+    \dirk{XXX Can we have one sentence in the beginning summarizing the 
+    main message of the figure and can we make the entire caption a bit shorter
+    and more to the point? XXX}
     \label{fig:vascular-network}}
 \end{figure}
+
+Flow through an edge is described by $F_e = k\frac{R_e^4}{L_e} (p_{e_0}
+-p_{e_1}$, where $R_e$ is edge radius, $L_e$ is edge length, $p_{e_i}$
+is hydrostatic pressure at node $e_i$, and $k$ is a constant of 
+proportionality. This is basically Poiseuille's law.\footnote{Recent
+work has shown that in reality, there a scaling relationship between
+effective hydraulic diameter $d_\mathrm{eff}$ and external vein diameter
+$R$, $d_\mathrm{eff} \sim R^{1-\gamma/4}$ with $\gamma \approx 0.6$.
+The radius parameter in Poiseuille's law should therefore really by
+corrected in this way. However, this relationship is not relevant for
+the point of this paper.}
+The continuity equation is $\sum_e E_{i,e} F_e = P(1 + (N-2)\delta_{i,0})$,
+modeling uniform evaporation of water over the whole leaf blade 
+except at the petiole ($i=0$), which acts as an inlet.
+\dirk{XXX Can we use $\phi$ for the pressure as before and $r$ for
+the radius? We already have capital $R$ for the resistance distance. XXX} 
+
+Since the flow equation is linear in the pressure difference, the
+flow change due to the perturbation is indeed exactly 
+(up to a constant factor) described by equation (\ref{eqn:cflow-lin}).
+The simulation results are shown in figure \ref{fig:vascular-network}.
+It is interesting to note that (a) the domain boundary between cycle
+flows of opposite orientation follows the leaf symmetry axis (the main
+vein) almost exactly. When perturbing other veins, the domain boundary
+similarly appears to follow the locally thickest veins.
+\dirk{XXX Cool. Can we have a few more pictures of different leaves 
+demonstrating this result for the appendix? XXX}
+Additionally, (b) cycle flow strength on either sides of thick veins
+appears to jump when there is no domain boundary, effectively confining
+the perturbation to a localized region.
+A different localization behavior (c) can be observed by plotting
+maximum and minimum cycle flow as a function of shortest path distance
+on the dual graph. 
+\dirk{XXX That's what I call cycle distance. We should have a consistent
+notation. And we shuld put the definition into the main text instead 
+of the figure caption ;-) XXX}
+Approximately exponential decay is clearly discernible
+over large distances. The leaf network is thus disordered enough
+to show Anderson localization of the perturbation.
+We speculate that this may be functionally relevant for the plant,
+as damage in one part of the leaf has only local effects, leaving
+most of the rest functioning undisturbedly.
+\dirk{XXX Cool Cool Cool. XXX}
+
+
+
 
 \section{Predicting blackouts in power grids}
 \label{sec:powergrid}
 
-Power grids form the backbone of our technical infrastructure. Their stable operation is essential for our economy and everyday life. Generally, power grids must be operated such that they are resilient against the damage of a single transmission line (the so-called $n-1$ criterion \cite{UCTE04}). Still,  local failures repeatedly induce global outages in periods of extreme loads \cite{Pour06,UCTE07}, which are expected to become much more likely in the future \cite{Pesc14}. Any fundamental result that predicts the effects of local failures is thus of great scientific as well as economic value.
+Power grids form the backbone of our technical infrastructure. Their stable operation is essential for our economy and everyday life \cite{Stro01,Pour06}. Generally, power grids must be operated such that they are resilient against the damage of a single transmission line (the so-called $n-1$ criterion \cite{UCTE04}). Still, local failures repeatedly induce global outages in periods of extreme loads \cite{Pour06}, which are expected to become much more likely in the future \cite{Pesc14}. Any fundamental result that predicts the effects of local failures is thus of great scientific as well as economic value.
 
+\begin{figure}
+    \includegraphics[width=\columnwidth]{pics/bulgaria15_iniload.pdf}
+    \includegraphics[width=\columnwidth]{pics/bulgaria15_change.pdf}
+    \caption{\label{fig:bulgaria1}
+    Indentification of critical transmission lines.
+    (a) Model of the Bulgarian power transmission grid under extreme load (see text for details).
+    Shown is direction and magnitude of the absolute power flow $|F|$ in MW as well as the
+    relative load $|F/K|$ in a color code. One bottleneck edge $e_1$ in central Bulgaria 
+    is vulnerable to secondary overloads.
+    (b) Algorithm \ref{thm:alg1} readily predicts which outage will lead
+    to an increase (red) or decrease (blue) of the flow on the bottleneck edge $e_1$. 
+    Only edges with a small cycle distance $d_c \le 1$ are considered, as remote edges
+    are expected to have no significant influence. In this way, one critical edge $e_0$     
+    is identified which has a small distance $d_c(e_0,e_1) = 0$ and a high initial
+    flow $|F_{e_0}| = 601$ MW. 
+    }
+\end{figure}
+
+If ohmic losses can be neglected and the voltage magnitude $U$ is constant throughout the grid,
+then the real power flow between two nodes $j$ and $\ell$ reads \cite{Wood13,12powergrid}
+\be
+      F_{j,\ell} =  U^2 B_{j\ell} \sin(\phi_{j} - \phi_\ell ),   
+\ee
+where $\phi_j$ is the power angle, i.e. the the phase angle of the complex voltage at
+node $j$, and $B_{j \ell}$ is the admittance of the respective transmission line.
+The continuity equation for the real power is given by (\ref{eqn:continuity1})
+such that the our results can be used to analyze the consequences of transmission
+line failures. The case of non-vanishing losses is further analyzed in appendix
+\ref{sec:acohm}.
+ 
+The topological response theory allows a direct assesment of transmission lines which are
+critical for network operation in the sense that their failure might induce a cascade leading
+to a network-wide outage. As an example, we analyze the operation of the Bulgarian power grid 
+in a hypothetical situation of extreme load shown in figure \ref{fig:bulgaria1} (a). The network 
+model is based on the dataset \cite{Hutc13}, neglecting power im- and exports and increasing 
+the generation and load at all nodes by a constant factor 50 \% in comparison to the normal operation.
+The grid is no longer $n-1$-secure in this situation.  Can we predict which transmission line
+failures can induce secondary outages and thus a potentially catastrophic cascade of failures?
+
+To find the Achilles' heal of the grid, we face the \emph{inverse} problem as before. 
+The starting point is the observation of one heavily loaded transmission line 
+$e_1$ in central Bulgaria, which is vulnerable to secondary overloads
+(see figure \ref{fig:bulgaria1} (a))
+Then we have to calculate which perturbations in the grid would create the strongest response 
+at the transmission line $e_1$.  
+First, applying algorithm \ref{thm:alg1} to all possible trigger edges $e$ in the network 
+reveals whether the load of $e_1$ increases or decreases when $e$ fails. It increases
+when the flow change $\Delta F_{e_1}$ is parallel to the inital flow $F_{e_1}^{(0)}$,
+and decreases otherwise.
+Second, we have shown that the strength of the flow change are essentially determined by the 
+initial flow of the failing edge and the cycle distance. In the current example we thus identify 
+a single transmission lines with a cycle distance $d_c(e_0,e_1)=0$ and a hight initial flow
+$|F_{e_0}^{(0)}| = 601$ whose failure is predicted to increase the load at $e_1$ 
+(see figure \ref{fig:bulgaria1} (b)). Indeed, numerical simulations confirm that exactly this 
+edges $e_0$ is indipensible for network operation. If is fails, no solution of the continuity 
+equation can be found, which signals an impeding blackout of the grid. 
+
+Notably, we also find several edges, whose removal would \emph{reduce} the load of the vulnerable
+edge $e_1$. Hence, the removal of a transmission line can be beneficial as it decreases the 
+maximum load in the grid. This surpring behaviour has been first discussed by Braess for
+traffic networks in a game theroretic framework \cite{Brae68} and has recently been 
+generalized to other types of supply network \cite{Mott04,12braess,13nonlocal}  
+The topological response theory provides an intutive explanation of this behaviour
+and shows that it is rooted in the cyclic topology of the network. In fact, it should
+occur for all types of network that respect the continuity equation.
+  
+
+\section{Discussion}
+
+\textbf{XXX TODO XXX}
+
+\acknowledgments
+ 
+We gratefully acknowledge support from the Helmholtz
+Association (grant no.~VH-NG-1025) and the Federal Ministry of 
+Education and Research (BMBF grant no.~03SF0472B and 03SF0472E).
+
+\appendix
+
+\section{Reponse theory for AC Power Grids}
+\label{sec:acohm}
+
+The state of an AC electric power grid is generally described by the so-called load flow equations
+for the real and the reactive power. They include ohmic losses such that the continuity equation
+(\ref{eqn:continuity1}) does not apply directly. However, the losses are generally small such that
+topological response theory can still provide a very good prediction of the state of the grid after 
+a transmission line failure. In this appendix we briefly introduce the load flow equations and 
+analyze the performance of this prediction for a common model power grid.
+
+Consider grid with $N_g$ generator nodes and $N_l$ load nodes. The continuity equation for the real power reads \cite{Wood13}
+\be
+      P_k = \sum_{m=1}^{N_g+N_l} U_k U_m
+            \left( G_{k m}\cos \phi_{km}+B_{k m}\sin\phi_{km} \right),   
+   \label{eqn:activepower}\\
+\ee
+where $P_k$ is the power generation or demand at node $k$, $U_k e^{i \phi_k}$ is the 
+complex voltage and $\phi_{km} = \phi_k - \phi_m$ abbreviates the phase difference. 
+The coupling of the nodes is described by the nodal admittance matrix 
+$Y_{k m} = G_{km} + iB_{km}$. If all votages are constant, $U_k = U$ and ohmic 
+losses can be neglected ($G_{km} = 0$), then we recover the continuity equation 
+in the form discussed in section \ref{sec:continuity},
+\be
+      P_k = \sum_{m=1}^{N_g+N_l} U^2  B_{k m}\sin( \phi_{k} - \phi_m). 
+\ee
+These approximations are mostly satisfied in modern power grids. Even more, a linearization as in equation (\ref{eqn:cflow-lin}) is appropriate when the grid is not too heavily loaded, which yields the so-called DC approximation \cite{Wood13,Hert06}. Most power grids are approximately planar, crossings of transmission lines are possible but rare. We thus expect that the algorithm \ref{thm:alg1} can still predict the effects of the damage of single transmission lines in real power grids with great accuracy.
 
 \begin{figure}[tb]
 %\includegraphics[trim=0cm 4cm 0cm 0cm, width=8cm]{pics/case30_tot.pdf}
@@ -444,7 +649,7 @@ Power grids form the backbone of our technical infrastructure. Their stable oper
 \caption{
 \label{fig:case30}
 Predicting flow changes after a transmission line failure in a model power grid.
-(a) Real power flows in the initial intact network.
+(a) Real power flows in the initial intact network in MW.
 (b) The failure of a transmission line (dashed) must be compensated by cycle flows indicated by
 cyclic arrows. The thickness of the lines indicates the strength of the cycle flows. 
 (c) The resulting flow changes after the failure of the marked transmission line.
@@ -452,58 +657,55 @@ cyclic arrows. The thickness of the lines indicates the strength of the cycle fl
 for all edges and the magnitude decreases with the cycle distance $d_c$.
 The power flow in (a,c) has been calculated using the standard software 
 MATPOWER for the 30-bus test case \cite{MATPOWER}.
+The cycle flows and the flow changes in (b,d) have been determined by algorithm 
+\ref{thm:alg1}.
 }
 \end{figure}
-
-Consider an AC electric power grid with $N_g$ generator nodes and $N_l$ load nodes. The continuity equation for the real power reads \cite{Mach08}
-\be
-      P_k = \sum_{m=1}^{N_g+N_l} U_k U_m
-            \left( G_{k m}\cos \phi_{km}+B_{k m}\sin\phi_{km} \right),   
-   \label{eqn:activepower}\\
-\ee
-where $P_k$ is the power generation or demand at node $k$, $U_k e^{i \phi_k}$ is the complex voltage and 
-$\phi_{km} = \phi_k - \phi_m$ abbreviates the phase difference. The coupling of the nodes is described by the nodal admittance matrix $Y_{k m} = G_{km} + iB_{km}$. If all votages are constant and ohmic losses can be neglected ($G_{km} = 0$), then we recover the continuity equation in the form discussed in section \ref{sec:continuity},
-\be
-      P_k = \sum_{m=1}^{N_g+N_l} U_k U_m  B_{k m}\sin( \phi_{k} - \phi_m). 
-\ee
-These approximations are mostly satisfied in modern power grids. Even more, a linearization as in equation (\ref{eqn:cflow-lin}) is appropriate when the grid is not too heavily loaded, which yields the so-called DC approximation \cite{Hert06}. Most power grids are approximately planar, crossings of transmission lines are possible but rare. We thus expect that the algorithm \ref{thm:alg1} can still predict the effects of the damage of single transmission lines in real power grids with great accuracy.
-
-We test the algorithm for the 30 bus test grid from \cite{MATPOWER} using both the full AC load flow calculations including ohmic losses and the DC approximation. In the AC case, the voltage $U_k$ of the consumer nodes are free variables whereas the reactive power demand is fixed which yields the additional constraint \cite{Mach08} 
-\be
-   Q_k = \sum_{\ell=1}^{N_g+N_l} U_k U_m
-            \left( G_{k m} \sin \phi_{km}-B_{k m}\cos\phi_{km} \right).   
-   \label{eqn:reactivepower}
-\ee  
-In total, we have $2 N_g + N_l$ free variables ($N_l$ voltages and $N_g+N_l$ phase angles) to satisfy the $2 N_g + N_l$ nonlinear equations (\ref{eqn:activepower}) and (\ref{eqn:reactivepower}). Figure \ref{fig:case30} compares numerically exact values for the real power flows and the flow changes with the topological predictions using algorithm \ref{thm:alg1}. The direction of the flow changes is correctly predicted for all edges. Notably, the flow changes are zero for one disconnected cycle in the north and several bridges. 
-
-
 
 \begin{figure}[tb]
 \includegraphics[width=8cm]{pics/case30d_fchange_quant2.pdf}
 \caption{
 \label{fig:case30q}
-XXX
+The reponse of a power grid to a transmission line failure increases linearly
+with the flow of the failing line and decay exponentially with the cycle distance. 
+(a) Flow change $\Delta F_{e}$ as a function of the initial flow of the failing
+line $F_{e_0}$ for all pairs of lines $e$ and $e_1$ with cycle distance
+$d_c =0$ (blue circles) and $d_c=1$ (green dots). Solid lines are linear fits.
+(b) Decay of the flow change, normalized by the inital flow of the failing edge, 
+with the cycle distance. Symbols are numerical values averaged over all edge
+pairs with a given cycle distance $d_c$. The black line shows an exponential fit.
+(c) Correlation coefficients for the linear relation in panel (a) as a function of the 
+cycle distance. An almost perfect proportionality is found for $d_c=0$.
+The power flow has been calculated using 
+MATPOWER for the 30-bus test case \cite{MATPOWER} with the full
+load flow equatiions (circles) and within the DC approximation (crosses, only
+in panels b,c). Results have been collected for all pairs of failing edge $e_0$
+and affected edge $e$.
 }
 \end{figure}
 
-\textbf{XXX Discuss figure \ref{fig:case30q} XXX}
+We test the algorithm for the 30 bus test grid from \cite{MATPOWER} using both the full AC load flow calculations including ohmic losses and the DC approximation. In the AC case, the voltage $U_k$ of the consumer nodes are free variables whereas the reactive power demand is fixed which yields the additional constraint \cite{Wood13} 
+\be
+   Q_k = \sum_{\ell=1}^{N_g+N_l} U_k U_m
+            \left( G_{k m} \sin \phi_{km}-B_{k m}\cos\phi_{km} \right).   
+   \label{eqn:reactivepower}
+\ee  
+In total, we have $2 N_g + N_l$ free variables ($N_l$ voltages and $N_g+N_l$ phase angles) to satisfy the $2 N_g + N_l$ nonlinear equations (\ref{eqn:activepower}) and (\ref{eqn:reactivepower}). Figure \ref{fig:case30} compares numerically exact values for the real power flows and the flow changes after the failure of a single transmission line with the topological predictions using algorithm \ref{thm:alg1}. The direction of the flow changes is correctly predicted for all edges. Notably, the flow changes are zero for one disconnected cycle in the north and several bridges. The strength of the flow changes depends primarily on the cycle distance to the failing edge, as shown in panels (c) and (d).
 
-\textbf{XXX Dirk will revise this section and include an example of critical link prediction. XXX}
+To reveal the essential factors which determine the reponse of a power grid to a local failure,
+We perform a full $n-1$-simulation of the 30 bus test grid, i.e. we sample over all 
+possible trigger edges and calculate the flow change for all remaining edges.
+Figure \ref{fig:case30q} (a) shows that the flow change at the remaining edges depends linearly 
+on the flow of the failing edge $F_{e_0}$. For a cycle distance $d_c=0$ we observe an almost
+perfect proportionality while for larger distances other factors become more and more 
+important. Still, we find a strong linear correlation also for larger distances, see panel (c).
+The normalized flow change decays rapdily with the cycle distance as shown in panel (b). 
+An exponential fit shows an excellent agreement.
 
-\section{Discussion}
-
-\textbf{XXX TODO XXX}
-
-\acknowledgments
- 
-We gratefully acknowledge support from the Helmholtz
-Association (grant no.~VH-NG-1025) and the Federal Ministry of 
-Education and Research (BMBF grant no.~03SF0472E).
-The work of HR is supported by the IMPRS Physics of Biological and
-Complex Systems, G\"ottingen. We wish to thank Torsten Eckstein for 
-providing the cleared maple leaf, and Jana Lasser for 
-contributing vectorization code.
-\appendix
+In panels (b) and (c) we further compare the results of the full nonlinear load flow equation
+with the lossless, linear DC approximation. Although our theory applies rigorously only to
+the lossless model, we observe a very good agreement in both cases. We conclude that 
+topological reponse theory yields good results also for power grids with moderate losses.
 
 \section{Proof of proposition \ref{thm:domains}}
 \label{sec:proof1}
@@ -576,18 +778,15 @@ or damaged.
 If the edge $e_0$ lies in the interior of the graph ($e_0 \notin \mathcal{B}$),
 then we have $\kappa q_{c_1} > 0$ and $\kappa q_{c_2} = - \kappa q_{c_1} <0$ 
 for the two cycles $c_1,c_2$ adjacent to the edge $e_0$ and $q_c = 0$ otherwise.
-Then $c_1$ belongs to a domain $\DD_+$ and $c_2$ belongs to a domain 
-$\DD_-$ and no further isolated domains can exist.
+Then $\DD_+$ contains the cycle $c_1$ and
+$\DD_-$ contains the cycle $c_2$
+and no further isolated domains can exist.
 
 If the edge $e_0$ lies on the boundary of the graph ($e_0 \in \mathcal{B}$),
 then only a single cycle $c_1$ is affected with $q_{c_1} \neq 0$. Hence there is only 
 one domain in the graph such that $f_c  \ge 0$ for all cycles $c$ if $q_{c_1} > 0$
 and $f_c  \le 0$ for all cycles $c$ if $q_{c_1} < 0$.
 \end{corr}
-
-\textbf{XXX TODO: We have shown that there are at most two isolated domains in this case. 
-It remains to be shown that there are exactly two domains, i.e. that it is impossible to have 
-just one. XXX}
 
 
 \section{Proof of proposition \ref{thm:decay}}
@@ -728,7 +927,7 @@ can replace the $\ge$ by $<$ in the estimations.
 In this appendix we derive the continuum model directly from the discrete
 network model in the uniform case. Consider a network with
 cycle edge adjacency matrix $C_{ce}$. Then we are interested in a
-continuous version of equation (\ref{eqn:pert}).
+continuous version of equation (\ref{eqn:cflow-lin}).
 On a square lattice the application of $A_{cd}$ to a vector in the 
 bulk can be written, going to the continuous limit (see Fig. \ref{fig:cycles-lattice}),
 \begin{align}
@@ -825,19 +1024,36 @@ for a perturbation at $\vec a = 0$.
 Indeed, the cycle density decays as $\phi(r) \sim r^{-1}$ and 
 the flow due to the perturbation as $\vec v(r) \sim r^{-2}$.
 
-% --- Literatur -------------------------------------------------------------------
+
+
+
 
 
 \section{Relationship between cycle flow and resistance distance}
 \label{sec:resdist}
-For linear flows, as discussed in \ref{sec:linflow-planar}, the equation \eqref{eqn:cflow-lin} governing cycle 
-flows simplifies to
-\begin{align}
-\label{eq:lapl-lin}
-A f_c &= \kappa q_d
-\end{align}
 
-Where 
+For linear flows, as discussed in \ref{sec:linflow-planar}, the equation \eqref{eqn:cflow-lin} 
+governing cycle flows 
+\begin{align}
+   \label{eq:lapl-lin}
+   A f_c &= \kappa q_d
+\end{align}
+is exact and equation \eqref{eqn:def-A} for the matrix $A$ simplifies to
+\begin{align}
+   A_{d,c} &= \sum_{e=1}^L C_{d,e} C_{c,e} \\
+           &=
+	     \begin{cases}
+	     \text{No. of edges shared by faces c and d} & \text{if } c\neq d\\
+	     \text{No. of edges in face c} & \text{if } c=d.
+	     \end{cases}
+    \nonumber	     
+\end{align}
+Then the matrix $A$ can be seen as a part of the Laplacian of the dual Graph 
+(cf.)\cite{levstein2009tight,Newm10})
+of $G$, the original network.  
+Let $L$ be a full Laplacian of the dual graph $D(G)$, whose $1$st row 
+corresponds to the \emph{unbounded face} of $G$.  Then $A$ can 
+be simply obtained by deleting the first row and first column of $L$.  
 \begin{align*}
 L&=
 \left(
@@ -851,39 +1067,36 @@ L_{41} &&&
 \right)
 \end{align*}
 
+\cite{Newm10}
 
-Now, solving \eqref{eq:lapl-lin} is equivalent to solving the auxiliary equation
+Now, equation \eqref{eq:lapl-lin} is equivalent to the the auxiliary equation
 \begin{align}
 \label{eq:aux-lin}
 L f' &= \kappa q_d'\\
 f'[1]&= 0
 \end{align}
-where $q_d'=0\otimes q_d$.  
-
-\eqref{eq:aux-lin} has the solution
+where $q_d'=0\otimes q_d$.  This equation can be formally solved as 
 \begin{align}
-\label{eq:sol-lg}
-f'&=\kappa L^g q_d'
+  \label{eq:sol-lg}
+   f'&=\kappa L^+ q_d',
 \end{align}
-
-Where $L^g$ is the Moore-Penrose pseudoinverse of $L$.  Now, Moore-Penrose 
-pseudoinverse is related to the resiatnce distance on a graph by this relation \cite{klein93}
-
+Where $L^+$ is the Moore-Penrose pseudoinverse of $L$. 
+Now, the Moore-Penrose pseudoinverse is closely related to the resistance distance,
+which provides a metric on graphs \cite{Klei93}. In particular, the elements of 
+$L^+$ are given by
 \begin{align*}
-L^g_{ij}&=-\frac{R_{ij}}{2}+\frac{1}{2|V|} \left( R_i^{tot}+R_j^{tot} \right)
+   L^+_{ij}&=-\frac{R_{ij}}{2}+\frac{1}{2|V|} \left( R_i^{\rm tot}+R_j^{\rm tot} \right)
+\end{align*}
+where $R_{ij}$ is the resistance distance between the faces $i$ and $j$ and 
+$R_i^{\rm tot}$ is the total resistance of all edges connected to node $i$.  
+Plugging these relations into equation \eqref{eq:sol-lg}, we obtain
+\begin{align*}
+   f_c &= \kappa \left(R_{c,c_0}-R_{c,c_1}\right) + \text{ const}
 \end{align*}
 
-Plugging it in \eqref{eq:sol-lg}, we obtain
+% --- Literatur -------------------------------------------------------------------
 
-\begin{align*}
-f_c&=\kappa \left(R_{cc_0}-R_{cc_1}\right) + \text{ const}
-\end{align*}
-
-
-
-
-
-\bibliography{networks,power,publwi}
+\bibliography{cycle}
 \bibliographystyle{apsrev}
 
 
